@@ -4,7 +4,7 @@ pipeline:
     commands:
       - echo "This is the build"
   docker:
-    image: docker
+    image: debian:stable-slim
     commands:
      - echo $${DOCKER_USERNAME}
      - echo $${DOCKER_PASSWORD}
