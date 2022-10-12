@@ -1,0 +1,15 @@
+pipeline:
+  build:
+    image: debian:stable-slim
+    commands:
+      - echo "This is the build"
+  docker-build:
+    image: woodpeckerci/plugin-docker-buildx
+    secrets: [docker_username, docker_password]
+    settings:
+      repo: ghcr.io/gimlet-io/gais
+      dockerfile: Dockerfile
+      platforms: linux/amd64
+      tag: $CI_COMMIT_SHA 
+    when:
+      event: push
