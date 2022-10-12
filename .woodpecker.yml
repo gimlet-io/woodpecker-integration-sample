@@ -3,12 +3,6 @@ pipeline:
     image: debian:stable-slim
     commands:
       - echo "This is the build"
-  test:
-    image: debian:stable-slim
-    commands:
-     - echo $${DOCKER_USERNAME}
-     - echo $${DOCKER_PASSWORD}
-    secrets: [ docker_username, docker_password ]
   docker-build:
     image: woodpeckerci/plugin-docker-buildx
     secrets: [docker_username, docker_password]
@@ -16,6 +10,7 @@ pipeline:
       repo: ghcr.io/gimlet-io/gais
       dockerfile: Dockerfile
       platforms: linux/amd64
-      tag: ${CI_COMMIT_SHA} 
+      tag: ${CI_COMMIT_SHA}
+      debug: true    
     when:
       event: push
