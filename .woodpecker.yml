@@ -3,7 +3,7 @@ pipeline:
     image: debian:stable-slim
     commands:
       - echo "This is the build"
-  docker:
+  test:
     image: debian:stable-slim
     commands:
      - echo $${DOCKER_USERNAME}
