@@ -3,6 +3,12 @@ pipeline:
     image: debian:stable-slim
     commands:
       - echo "This is the build"
+  docker:
+    image: docker
+    commands:
+     - echo $${DOCKER_USERNAME}
+     - echo $${DOCKER_PASSWORD}
+    secrets: [ docker_username, docker_password ]
   docker-build:
     image: woodpeckerci/plugin-docker-buildx
     secrets: [docker_username, docker_password]
