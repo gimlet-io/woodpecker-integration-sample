@@ -9,6 +9,7 @@ pipeline:
     image: woodpeckerci/plugin-docker-buildx
     secrets: [docker_username, docker_password]
     settings:
+      registry: "https://ghcr.io"
       repo: ghcr.io/gimlet-io/gais
       dockerfile: Dockerfile
       platforms: linux/amd64
