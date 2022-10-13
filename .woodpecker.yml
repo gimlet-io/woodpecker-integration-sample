@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: debian:stable-slim
+    image: docker
     secrets: [docker_username, docker_password]
     commands:
       - echo "This is the build"
