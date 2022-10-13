@@ -1,2 +1,1 @@
 # woodpecker-integration-sample
-
