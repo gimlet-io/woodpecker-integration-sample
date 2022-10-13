@@ -1,10 +1,8 @@
 pipeline:
   build:
     image: docker
-    secrets: [docker_username, docker_password]
     commands:
       - echo "This is the build"
-      - echo $DOCKER_PASSWORD | docker login ghcr.io -u $DOCKER_USERNAME --password-stdin
   docker-build:
     image: woodpeckerci/plugin-docker-buildx
     secrets: [docker_username, docker_password]
@@ -14,5 +12,11 @@ pipeline:
       dockerfile: Dockerfile
       platforms: linux/amd64
       tag: ${CI_COMMIT_SHA}  
+  deploy-staging:
+    image: ghcr.io/gimlet-io/woodpecker-plugin:08c1224832950c1407643dba1efa12bce2243090
     when:
-      event: push
+      branch: main
+      event: push  
+    secrets: [gimlet_server, gimlet_token]
+    settings:
+      debug: true
