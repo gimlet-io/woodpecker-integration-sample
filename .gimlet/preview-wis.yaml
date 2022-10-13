@@ -1,4 +1,4 @@
-app: "{{ printf \"wis-%s\" .GITHUB_BRANCH | sanitizeDNSName }}"
+app: "{{ printf \"wis-%s\" .BRANCH | sanitizeDNSName }}"
 env: preview
 namespace: preview
 chart:
@@ -16,7 +16,7 @@ values:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt
       kubernetes.io/ingress.class: nginx
-    host: "{{ trunc 40 (printf \"wis-%s\" .GITHUB_BRANCH) | sanitizeDNSName }}.preview.turbopizza.net"
+    host: "{{ trunc 40 (printf \"wis-%s\" .BRANCH) | sanitizeDNSName }}.preview.turbopizza.net"
     tlsEnabled: true
   resources:
     requests:

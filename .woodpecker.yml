@@ -13,10 +13,13 @@ pipeline:
       platforms: linux/amd64
       tag: ${CI_COMMIT_SHA}  
   deploy-staging:
-    image: ghcr.io/gimlet-io/woodpecker-plugin:03ea7513ba92740916a2deade74c3e376a94ccaf
+    image: ghcr.io/gimlet-io/woodpecker-plugin:30eeffd351e6f38b8f4b731dab52e864b3695b9c
     when:
       branch: main
       event: push  
     secrets: [gimlet_server, gimlet_token]
-    # settings:
-      # debug: true
+    settings:
+      deploy: true
+      env: staging
+      app: wis
+      wait: true
