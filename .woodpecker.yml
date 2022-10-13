@@ -18,5 +18,5 @@ pipeline:
       branch: main
       event: push  
     secrets: [gimlet_server, gimlet_token]
-    settings:
-      debug: true
+    # settings:
+      # debug: true
