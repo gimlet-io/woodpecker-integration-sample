@@ -13,7 +13,7 @@ pipeline:
       platforms: linux/amd64
       tag: ${CI_COMMIT_SHA}  
   deploy-staging:
-    image: ghcr.io/gimlet-io/woodpecker-plugin:08c1224832950c1407643dba1efa12bce2243090
+    image: ghcr.io/gimlet-io/woodpecker-plugin:03ea7513ba92740916a2deade74c3e376a94ccaf
     when:
       branch: main
       event: push  
