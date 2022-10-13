@@ -10,7 +10,7 @@ pipeline:
     secrets: [docker_username, docker_password]
     settings:
       registry: "https://ghcr.io"
-      repo: ghcr.io/gimlet-io/gais
+      repo: ghcr.io/gimlet-io/wis
       dockerfile: Dockerfile
       platforms: linux/amd64
       tag: ${CI_COMMIT_SHA}  
