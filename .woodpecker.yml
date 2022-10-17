@@ -1,6 +1,7 @@
 pipeline:
   build:
     image: docker
+    secrets: [gimlet_server, gimlet_token]
     commands:
       - echo "This is the build"
       - printenv | grep CI
