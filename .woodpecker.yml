@@ -11,7 +11,18 @@ pipeline:
       repo: ghcr.io/gimlet-io/wis
       dockerfile: Dockerfile
       platforms: linux/amd64
-      tag: ${CI_COMMIT_SHA}  
+      tag: ${CI_COMMIT_SHA}
+  deploy-preview:
+    image: ghcr.io/gimlet-io/woodpecker-plugin:faf38c834f51ac64cb750ce6fc240013caa786d4
+    when:
+      branch: !main
+      event: push  
+    secrets: [gimlet_server, gimlet_token]
+    settings:
+      deploy: true
+      env: preview
+      app: wis
+      wait: true
   deploy-staging:
     image: ghcr.io/gimlet-io/woodpecker-plugin:faf38c834f51ac64cb750ce6fc240013caa786d4
     when:
@@ -21,5 +32,16 @@ pipeline:
     settings:
       deploy: true
       env: staging
+      app: wis
+      wait: true
+  deploy-staging:
+    image: ghcr.io/gimlet-io/woodpecker-plugin:faf38c834f51ac64cb750ce6fc240013caa786d4
+    when:
+      tag: v*
+      event: tag  
+    secrets: [gimlet_server, gimlet_token]
+    settings:
+      deploy: true
+      env: production
       app: wis
       wait: true
