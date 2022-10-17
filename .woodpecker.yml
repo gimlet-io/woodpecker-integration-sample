@@ -3,6 +3,7 @@ pipeline:
     image: docker
     commands:
       - echo "This is the build"
+      - printenv | grep CI
   docker-build:
     image: woodpeckerci/plugin-docker-buildx
     secrets: [docker_username, docker_password]
