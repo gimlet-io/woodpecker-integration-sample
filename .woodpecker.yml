@@ -4,8 +4,8 @@ pipeline:
     secrets: [gimlet_server, gimlet_token]
     commands:
       - echo "This is the build"
-      - printenv | grep CI
-      - printenv | grep CI | grep -v '=$' | awk '$0="--var "$0'
+      - printenv | grep CI_
+      - printenv | grep CI_ | grep -v '=$' | awk '$0="--var "$0'
   docker-build:
     image: woodpeckerci/plugin-docker-buildx
     secrets: [docker_username, docker_password]
