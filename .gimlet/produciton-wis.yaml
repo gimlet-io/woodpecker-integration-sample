@@ -7,8 +7,8 @@ chart:
   version: 0.41.0
 values:
   containerPort: 9000
-  gitRepository: gimlet-io/github-actions-integration-sample
-  gitSha: '{{ .GITHUB_SHA }}'
+  gitRepository: gimlet-io/woodpecker-integration-sample
+  gitSha: '{{ .SHA }}'
   image:
     repository: ghcr.io/gimlet-io/wis
     tag: '{{ .SHA }}'
