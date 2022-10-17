@@ -23,6 +23,7 @@ pipeline:
       env: preview
       app: wis
       wait: true
+      debug: true
   deploy-staging:
     image: ghcr.io/gimlet-io/woodpecker-plugin:71c630cdb0d74ba67614937466f69b4beb3be116
     when:
