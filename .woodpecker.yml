@@ -34,7 +34,7 @@ pipeline:
       env: staging
       app: wis
       wait: true
-  deploy-staging:
+  deploy-production:
     image: ghcr.io/gimlet-io/woodpecker-plugin:faf38c834f51ac64cb750ce6fc240013caa786d4
     when:
       tag: v*
