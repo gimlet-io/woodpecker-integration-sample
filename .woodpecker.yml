@@ -13,7 +13,7 @@ pipeline:
       platforms: linux/amd64
       tag: ${CI_COMMIT_SHA}
   deploy-preview:
-    image: ghcr.io/gimlet-io/woodpecker-plugin:71c630cdb0d74ba67614937466f69b4beb3be116
+    image: ghcr.io/gimlet-io/woodpecker-plugin:8bf1f3c51758bfeba3e000f8202f8b1af8c6a824
     when:
       branch: [feature/*, bugfix/*]
       event: push  
@@ -25,7 +25,7 @@ pipeline:
       wait: true
       debug: true
   deploy-staging:
-    image: ghcr.io/gimlet-io/woodpecker-plugin:71c630cdb0d74ba67614937466f69b4beb3be116
+    image: ghcr.io/gimlet-io/woodpecker-plugin:8bf1f3c51758bfeba3e000f8202f8b1af8c6a824
     when:
       branch: main
       event: push  
@@ -36,7 +36,7 @@ pipeline:
       app: wis
       wait: true
   deploy-production:
-    image: ghcr.io/gimlet-io/woodpecker-plugin:71c630cdb0d74ba67614937466f69b4beb3be116
+    image: ghcr.io/gimlet-io/woodpecker-plugin:8bf1f3c51758bfeba3e000f8202f8b1af8c6a824
     when:
       tag: v*
       event: tag  
